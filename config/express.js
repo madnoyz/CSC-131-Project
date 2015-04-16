@@ -1,6 +1,7 @@
 var config = require('./config'),
   express = require('express'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  passport = require('passport');
 
 
 module.exports = function() {
@@ -11,6 +12,10 @@ module.exports = function() {
   }));
 
   app.use(bodyParser.json());
+
+  // Passport login
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   // EJS Template Views
   app.set('views', './app/views');
