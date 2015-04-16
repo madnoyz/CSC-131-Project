@@ -1,0 +1,28 @@
+{
+  "name": "MLHTime",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.12.3",
+    "gulp": "latest",
+    "mongoose": "^4.0.1"
+  },
+  "description": "Time monitoring tool for Motherlode Holdings Employees's work hours.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/madnoyz/CSC-131-Project.git"
+  },
+  "keywords": [
+    "mean"
+  ],
+  "author": "Just Not Something Weird - CSUS CSC131",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/madnoyz/CSC-131-Project/issues"
+  },
+  "homepage": "https://github.com/madnoyz/CSC-131-Project"
+}
