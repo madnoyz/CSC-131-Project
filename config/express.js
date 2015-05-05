@@ -35,6 +35,7 @@ module.exports = function() {
   require('../app/routes/index.server.routes.js')(app);
   require('../app/routes/users.server.routes.js')(app);
   require('../app/routes/login.server.routes.js')(app);
+  require('../app/routes/register.server.routes.js')(app);
   // Using images
   app.use(express.static('./public'));
   return app;
