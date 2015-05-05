@@ -1,13 +1,9 @@
 var config = require('./config'),
   express = require('express'),
-  jade = require('jade');
-  bodyParser = require('body-parser'),
-<<<<<<< HEAD
   jade = require('jade'),
-=======
+  bodyParser = require('body-parser'),
   flash = require('connect-flash'),
   session = require('express-session'),
->>>>>>> origin/master
   passport = require('passport');
 
 module.exports = function() {
