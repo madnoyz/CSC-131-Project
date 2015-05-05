@@ -1,9 +1,14 @@
 var config = require('./config'),
   express = require('express'),
+  jade = require('jade');
   bodyParser = require('body-parser'),
+<<<<<<< HEAD
   jade = require('jade'),
+=======
+  flash = require('connect-flash'),
+  session = require('express-session'),
+>>>>>>> origin/master
   passport = require('passport');
-
 
 module.exports = function() {
   var app = express();
@@ -17,6 +22,15 @@ module.exports = function() {
   // Passport login
   app.use(passport.initialize());
   app.use(passport.session());
+
+  // Flash connect error message
+  app.use(flash());
+
+  app.use(session({
+    saveUninitialized: true,
+    resave: true,
+    secret: 'OurSuperSecretCookieSecret'
+  }));
 
   // EJS Template Views
   app.set('views', './app/views');
