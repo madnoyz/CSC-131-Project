@@ -12,11 +12,15 @@ module.exports = function(app) {
 		.get(users.renderRegister)
 		.post(users.register);
 
+	app.route('/employee')
+		.get(users.renderEmployee)
+		//.post(users.employee);
+
 	app.route('/login')
 		.get(users.renderLogin)
 		.post(passport.authenticate('local', {
 			successRedirect: '/',
-			failureRedirect: '/login',
+			failureRedirect: '/index',
 			failureFlash: true
 		}));
 
