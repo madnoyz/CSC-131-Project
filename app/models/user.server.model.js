@@ -3,7 +3,8 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-	name: String,
+	firstName: String,
+	lastName: String,
 	email: String,
 	username: {
 		type: String,
@@ -11,6 +12,11 @@ var UserSchema = new Schema({
 		unique: true
 	},
 	password: String,
+	supervisor: Boolean,
+	superUser: Boolean,
+	startDate: String,
+	endDate: String,
+	company: String,
 	provider: String,
 	providerId: String,
 	providerData: {}

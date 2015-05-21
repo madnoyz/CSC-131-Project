@@ -6,7 +6,7 @@ var config = require('./config'),
 // configuration ================
 
 module.exports = function() {
-	var db = mongoose.connect('mongodb://localhost/mlh');
+	var db = mongoose.connect('mongodb://csc131:csc131@ds039960.mongolab.com:39960/mlh');
 
   require('../app/models/user.server.model.js');
 	return db;

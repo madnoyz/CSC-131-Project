@@ -14,7 +14,7 @@ module.exports = function(app) {
 
 	app.route('/employee')
 		.get(users.renderEmployee)
-		//.post(users.employee);
+	//	.post(users.employee);
 
 	app.route('/login')
 		.get(users.renderLogin)

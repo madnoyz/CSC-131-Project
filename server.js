@@ -7,11 +7,13 @@ var port = 1337;
 var config = require('./config/config'),
   mongoose = require('./config/mongoose'),
   express = require('./config/express.js'),
-  passport = require('./config/passport.js');
+  passport = require('./config/passport.js'),
+  moment = require('moment');
 
 var db = mongoose(),
     app = express(),
-    passport = passport();
+    passport = passport(),
+    moment = moment();
 
 //
 app.listen(config.port);
