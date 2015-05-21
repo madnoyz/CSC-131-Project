@@ -1,28 +1,124 @@
-extend layout
-//
-|  .navbar.navbar-default.navbar-static-top(role='navigation')
-|      .container
-|          .navbar-header
-|            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-|                  span.sr-only Toggle navigation
-|                  span.icon-bar
-|                  span.icon-bar
-|                  span.icon-bar
-|                a.navbar-brand(href='#') #{brand}
-|              .navbar-collapse.collapse
-|                ul.nav.navbar-nav
-|                  - var obj = { 'home':'Home', 'about':'About' }
-|                    - each val, key in obj
-|                      - if (id == key)
-|                        li.active
-|                          a(href='#{key}') #{val}
-|                      - else
-|                        li
-|                          a(href='#{key}') #{val}
-block content
-  h2 #{employeeName}
-
-block timeSelector
-
-block timeSheet
-  
+doctype html
+html(ng-app='simpleApp')
+  head
+    title  Mother Lode Time Keeping
+    // Latest compiled and minified CSS
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.min.css')
+    script(src='https://code.jquery.com/jquery-1.11.1.min.js')
+    link(href='http://handsontable.com//styles/main.css', rel='stylesheet')
+    link(href='http://handsontable.com//bower_components/handsontable/dist/handsontable.full.min.css', rel='stylesheet')
+    script(src='http://handsontable.com//bower_components/handsontable/dist/handsontable.full.min.js')
+    script(type='text/javascript').
+      $(window).load(function(){
+      $(document).ready(function () {
+      var container = document.getElementById('basic_example');
+      var data = function () {
+      return Handsontable.helper.createSpreadsheetData(14, 9);
+      };
+      var hot = new Handsontable(container, {
+      data: data(),
+      height: 396,
+      width:  700,
+      colHeaders: ["Regular Hours","Overtime Hours","Holiday","Vacation","Sick","Unpaid","ER","Jury Duty","Total"],
+      rowHeaders: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      stretchH: 'all',
+      columnSorting: true,
+      contextMenu: true
+      });
+      });
+      });
+  h1 Company Logo here
+  link(type='text/css', rel='stylesheet', href='http://www.placertitle.com/sites/placertitle/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css', media='all')
+  link(type='text/css', rel='stylesheet', href='http://www.placertitle.com/sites/placertitle/files/css/css_i4fCkr4Lzq8K7CdSphj47e-Cd4NkNUZ-kKSgIJoTbak.css', media='screen')
+  link(type='text/css', rel='stylesheet', href='http://www.placertitle.com/sites/placertitle/files/css/css_5pO73qc-z-zv4xoH8aIAp_Prq1thKg1qz9beR7eKaZg.css', media='all')
+  link(type='text/css', rel='stylesheet', href='http://www.placertitle.com/sites/placertitle/files/css/css_9-AjLLqC-pRPdTc2-l0YIaiYflFgKX7Q7eQzfVBComg.css', media='all')
+  link(type='text/css', rel='stylesheet', href='http://www.placertitle.com/sites/placertitle/files/css/css_P8eG7NTl52zYK70nOvR5zUFCSbJE11G3Uw4u5j_Wowc.css', media='all')
+  link(type='text/css', rel='stylesheet', href='http://fonts.googleapis.com/css?family=Raleway:200,500,700,800&subset=latin', media='all')
+  link(type='text/css', rel='stylesheet', href='css/clydescssdotcom.css')
+  table.table(style='float:left')
+    thead
+      tr(ng-repeat='contact in contactlist')
+      tr
+        th
+          u Name
+        td
+          u {{contact.name}}
+      tr
+        th
+          u Company
+        td
+          u {{contact.company}}
+      tr
+        th
+          u Email
+        td
+          u {{contact.email}}
+      tr
+        th
+          u Supervisor
+        td
+          u {{contact.supervisor}}
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  style.
+    h5{
+    width:350px;
+    background-color:White;
+    border: 3px solid red;
+    color: rgb(0,0,0);
+    }
+    .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+    }
+    .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+    }
+  div(style='background-color:grey; border: 3px solid red;width:300px;', ng-controller='DatepickerDemoCtrl')
+    pre.
+      \nSelected date is:
+    h4 Select Date Range
+    .row
+      .col-md-6
+        p.input-group
+          input.form-control(type='text', datepicker-popup='{{format}}', ng-model='dt', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+          span.input-group-btn
+            button.btn.btn-default(type='button', ng-click='open($event)')
+              i.glyphicon.glyphicon-calendar
+    label Format:
+    select.form-control(ng-model='format', ng-options='f for f in formats')
+      option
+    hr
+    button.btn.btn-sm.btn-info(type='button', ng-click='today()') Today
+    button.btn.btn-sm.btn-default(type='button', ng-click="dt = '2015-05-20'") 2015-05-20
+    button.btn.btn-sm.btn-danger(type='button', ng-click='clear()') Clear
+    button.btn.btn-sm.btn-default(type='button', ng-click='toggleMin()', tooltip='After today restriction') Min date
+  style(type='text/css').
+    body {
+    background-color:#47D1FF;
+    }
+  #basic_example
+  h5
+    | Comments:
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+  button.btn.btn-danger(type='button') Submit Time
+  // Latest compiled and minified JavaScript
+  script(src='bower_components/angular/angular.min.js')
+  script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')
+  script(src='date.js')
